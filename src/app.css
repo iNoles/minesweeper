@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+.board {
+  @apply grid gap-1 p-4 rounded-2xl shadow-xl 
+         bg-transparent border border-neutral-300 dark:border-neutral-800
+         grid-cols-[repeat(10,minmax(2.5rem,1fr))];
+  max-width: 500px; /* Set a max-width for the board */
+  margin: 0 auto;  /* Center the board horizontally */
+}
+
+@media (min-width: 768px) {
+  .board {
+    max-width: 700px; /* Increase max-width on larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .board {
+    max-width: 800px; /* Adjust for even larger screens */
+  }
+}
+
+.cell {
+  @apply w-10 h-10 flex items-center justify-center border rounded-xl 
+         text-lg font-semibold cursor-pointer transition-all duration-150 
+         select-none border-neutral-400 dark:border-neutral-700;
+}
+
+/* Unrevealed cells */
+.cell.hidden {
+  @apply bg-neutral-300 hover:bg-neutral-400 
+         dark:bg-neutral-700 dark:hover:bg-neutral-600;
+}
+
+/* Revealed cells */
+.cell.revealed {
+  @apply bg-neutral-500 text-black 
+         dark:bg-neutral-800 dark:text-white;
+}
+
+/* Mines */
+.cell.mine {
+  @apply bg-red-600 text-white 
+         dark:bg-red-500;
+}
+
+/* Flagged cells */
+.cell.flagged {
+  @apply bg-yellow-400 text-black 
+         dark:bg-yellow-500;
+}
+
+/* Better hover and focus states */
+.cell:focus {
+  @apply outline-none ring-2 ring-offset-2 
+         ring-neutral-500 dark:ring-neutral-300;
+}
