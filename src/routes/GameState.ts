@@ -2,6 +2,7 @@ export interface Cell {
   isMine: boolean;
   isRevealed: boolean;
   isFlagged: boolean;
+  isWrongFlag: boolean;
   adjacentMines: number;
 }
 
@@ -19,6 +20,7 @@ export function createGrid(rows: number, cols: number, mineCount: number): Grid 
       isMine: false,
       isRevealed: false,
       isFlagged: false,
+      isWrongFlag: false,
       adjacentMines: 0,
     }))
   );

@@ -40,14 +40,7 @@
 
 /* Mines */
 .cell.mine {
-  @apply bg-red-600 text-white 
-         dark:bg-red-500;
-}
-
-/* Flagged cells */
-.cell.flagged {
-  @apply bg-yellow-400 text-black 
-         dark:bg-yellow-500;
+  @apply bg-red-600 dark:bg-red-500;
 }
 
 /* Better hover and focus states */
