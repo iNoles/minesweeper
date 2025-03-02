@@ -100,7 +100,7 @@
 
 <div class="flex min-h-screen flex-col items-center justify-center">
 	<header class="py-4 text-center">
-		<h1 class="text-3xl font-bold text-neutral-900 dark:text-white">Minesweeper</h1>
+		<h1 class="text-3xl font-bold text-neutral-900">Minesweeper</h1>
 	</header>
 
 	<div class="board">
