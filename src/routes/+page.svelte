@@ -25,8 +25,11 @@
 			// Reveal all mines and mark incorrect flags
 			grid.forEach((row) =>
 				row.forEach((cell) => {
-					if (cell.isMine) cell.isRevealed = true;
-					if (cell.isFlagged && !cell.isMine) cell.isWrongFlag = true; // Mark incorrect flags
+					if (cell.isMine) {
+						cell.isRevealed = true;
+					} else if (cell.isFlagged && !cell.isMine) {
+						cell.isWrongFlag = true; // Mark wrong flag **only after losing**
+					}
 				})
 			);
 		} else if (grid[row][col].adjacentMines === 0) {
@@ -39,14 +42,9 @@
 	// Reveal adjacent cells recursively
 	function revealAdjacentCells(row: number, col: number): void {
 		const directions = [
-			[-1, -1],
-			[-1, 0],
-			[-1, 1],
-			[0, -1],
-			[0, 1],
-			[1, -1],
-			[1, 0],
-			[1, 1]
+			[-1, -1], [-1, 0], [-1, 1],
+			[0, -1],         [0, 1],
+			[1, -1], [1, 0], [1, 1]
 		];
 
 		for (const [dx, dy] of directions) {
@@ -58,7 +56,7 @@
 				!grid[newRow][newCol].isRevealed &&
 				!grid[newRow][newCol].isMine
 			) {
-				grid[newRow][newCol].isRevealed = true; // Mark as revealed before recursion
+				grid[newRow][newCol].isRevealed = true;
 				if (grid[newRow][newCol].adjacentMines === 0) {
 					revealAdjacentCells(newRow, newCol);
 				}
@@ -70,26 +68,20 @@
 	function toggleFlag(row: number, col: number): void {
 		if (gameWon || grid[row][col].isRevealed) return;
 
-		const newFlagState = !grid[row][col].isFlagged;
-
-		grid[row][col] = {
-			...grid[row][col],
-			isFlagged: newFlagState,
-			isWrongFlag: newFlagState && !grid[row][col].isMine // Mark wrong flag if it's a mistake
-		};
+		grid[row][col].isFlagged = !grid[row][col].isFlagged;
 	}
 
 	// Handle long-press flagging on mobile & mouse
 	function handleLongPress(row: number, col: number) {
 		longPressTimer = setTimeout(() => {
 			toggleFlag(row, col);
-		}, 500); // 500ms long-press to flag
+		}, 500);
 	}
 
 	function cancelLongPress() {
 		if (longPressTimer) {
 			clearTimeout(longPressTimer);
-			longPressTimer = null; // Reset the timer
+			longPressTimer = null;
 		}
 	}
 
@@ -119,8 +111,7 @@
 						? 'mine'
 						: ''} {cell.isFlagged ? 'flagged' : ''}"
 					on:click={() => !gameOver && !gameWon && revealCell(rowIndex, colIndex)}
-					on:contextmenu|preventDefault={() =>
-						!gameOver && !gameWon && toggleFlag(rowIndex, colIndex)}
+					on:contextmenu|preventDefault={() => !gameOver && !gameWon && toggleFlag(rowIndex, colIndex)}
 					on:touchstart={() => !gameOver && !gameWon && handleLongPress(rowIndex, colIndex)}
 					on:touchend={cancelLongPress}
 				>
@@ -130,7 +121,7 @@
 						{:else}
 							{cell.adjacentMines || ''}
 						{/if}
-					{:else if cell.isWrongFlag}
+					{:else if gameOver && cell.isWrongFlag}
 						<XCircle size={20} class="text-red-500" />
 					{:else if cell.isFlagged}
 						<Flag size={20} class="text-red-500" />
