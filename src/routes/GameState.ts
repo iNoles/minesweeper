@@ -40,8 +40,9 @@ export function createGrid(rows: number, cols: number, mineCount: number): Grid 
   // Calculate adjacent mine counts
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
-      if (grid[row][col].isMine) continue;
-      grid[row][col].adjacentMines = countAdjacentMines(grid, row, col);
+      if (!grid[row][col].isMine) {
+        grid[row][col].adjacentMines = countAdjacentMines(grid, row, col);
+      }
     }
   }
 
