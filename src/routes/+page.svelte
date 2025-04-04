@@ -7,34 +7,24 @@
   </script>
   
   <header class="text-center">
-	<h1 class="text-3xl font-bold text-gray-800">Minesweeper</h1>
+	<h1 class="text-3xl font-bold text-gray-800 dark:text-gray-200">Minesweeper</h1>
 	<div class="flex gap-4 justify-center mt-2">
-	  <span class="text-lg text-gray-800">⏳ Time: {$timer}s</span>
-	  <span class="text-lg text-gray-800">🚩 Flags: {$flagsUsed}</span>
+	  <span class="text-lg text-gray-800 dark:text-gray-300">⏳ Time: {$timer}s</span>
+	  <span class="text-lg text-gray-800 dark:text-gray-300">🚩 Flags: {$flagsUsed}</span>
 	</div>
   </header>
-  
+
   <div class="text-center mt-4">
 	<button on:click={resetGame} class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
 	  Restart
 	</button>
   </div>
   
-  {#if $gameOver}
+  {#if $gameOver || $gameWon}
 	<div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center z-10">
-	  <div class="text-center text-2xl font-bold text-red-500">Game Over</div>
-	  <button on:click={resetGame} class="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-		Restart
-	  </button>
-	</div>
-  {/if}
-  
-  {#if $gameWon}
-	<div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center z-10">
-	  <div class="text-center text-2xl font-bold text-green-500">You Win!</div>
-	  <button on:click={resetGame} class="mt-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-		Restart
-	  </button>
+	  <div class="text-center text-2xl font-bold { $gameOver ? 'text-red-500' : 'text-green-500' }">
+		{ $gameOver ? "Game Over" : "You Win!" }
+	  </div>
 	</div>
   {/if}
   

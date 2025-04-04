@@ -5,6 +5,7 @@ A fun and interactive **Minesweeper** game built with **Svelte** and **Tailwind 
 ## 🚀 Features
 
 - 🎯 **Responsive Design**: Works great on desktop, tablet, and mobile.
+- 🌗 **Light & Dark Themes**: Toggle between themes for better accessibility and comfort.
 - 💣 **Minefield Grid**: Classic 10x10 grid with randomly placed mines.
 - 🚩 **Flagging System**: Mark suspected mines to help strategize your moves.
 - ⚡ **Prerendered Pages**: Fast loading with prerendered static pages.
