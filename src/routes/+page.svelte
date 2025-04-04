@@ -2,18 +2,8 @@
 	import { game } from '../stores/GameState';
 	import { Bomb, Flag } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
-	import { isDarkMode } from '../stores/ThemeStore';
 	
 	let { grid, gameOver, gameWon, timer, flagsUsed, revealCell, toggleFlag, resetGame } = game;
-	
-	// Toggle the theme and save the preference
-	function toggleTheme() {
-	  isDarkMode.update((current) => {
-		const newMode = !current;
-		localStorage.setItem('theme', newMode ? 'dark' : 'light');
-		return newMode;
-	  });
-	}
   </script>
   
   <header class="text-center">
@@ -23,11 +13,6 @@
 	  <span class="text-lg text-gray-800 dark:text-gray-200">🚩 Flags: {$flagsUsed}</span>
 	</div>
   </header>
-  
-  <!-- Theme toggle button -->
-  <button on:click={toggleTheme} class="mt-4 p-2 bg-blue-500 text-white rounded dark:bg-blue-700">
-	{$isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-  </button>
   
   <div class="text-center mt-4">
 	<button on:click={resetGame} class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition dark:bg-blue-800 dark:hover:bg-blue-700">
