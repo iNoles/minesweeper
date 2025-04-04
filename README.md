@@ -1,23 +1,23 @@
 # Minesweeper Game
 
-A fun and interactive **Minesweeper** game built with **Svelte** and **Tailwind CSS**. The game is fully responsive, with a clean design and light and dark themes. The goal is to clear the minefield without triggering any mines.
+A fun and interactive **Minesweeper** game built with **Svelte** and **Tailwind CSS**. The game is fully responsive, supports light/dark themes, and offers a clean, intuitive user experience. Your goal: clear the minefield without triggering any mines!
 
-## Features
+## 🚀 Features
 
-- **Responsive Design**: Works seamlessly across all devices (desktop, tablet, mobile).
-- **Light & Dark Themes**: Toggle between light and dark themes for a better user experience.
-- **Minefield Layout**: The game board consists of a 10x10 grid with random mines.
-- **Flagging**: Flag potential mines to keep track of where they might be.
-- **Prerendered Pages**: Fast loading with prerendered static pages.
-- **Wrong Flag Indication**: Incorrectly placed flags are revealed after the game ends.
+- 🎯 **Responsive Design**: Works great on desktop, tablet, and mobile.
+- 🌗 **Light & Dark Themes**: Toggle between themes for better accessibility and comfort.
+- 💣 **Minefield Grid**: Classic 10x10 grid with randomly placed mines.
+- 🚩 **Flagging System**: Mark suspected mines to help strategize your moves.
+- ⚡ **Prerendered Pages**: Fast loading with prerendered static pages.
+- ❌ **Wrong Flag Indication**: Incorrectly placed flags are highlighted after game over.
 
-## Installation
+## 🛠 Installation
 
 To run this project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/minesweeper-game.git
+   git clone https://github.com/iNoles/minesweeper.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -32,21 +32,21 @@ To run this project locally:
    bun run dev
    ```
 
-## Usage
+## 🎮 How to Play
 
-- Click on cells to reveal them. If you click on a mine, the game ends!
-- Right-click (or long press on mobile) to flag potential mines.
-- Win the game by revealing all non-mine cells.
-- Incorrectly placed flags are highlighted after game over.
+- Left-click a cell to reveal it.
+- Right-click (or long press on mobile) to place or remove a flag.
+- Reveal all non-mine cells to win.
+- After the game ends, incorrectly flagged cells will be revealed.
 
-## Technologies Used
+## 🧰 Built With
 
-- Svelte: A lightweight framework for building fast, interactive web apps.
-- Tailwind CSS: Utility-first CSS framework for styling.
-- TypeScript: Superset of JavaScript for static typing.
-- Vite: Build tool that provides fast bundling.
+- ⚙️ Svelte — reactive UI framework.
+- 🎨 Tailwind CSS — utility-first styling.
+- 🧑‍💻 TypeScript — static typing.
+- ⚡ Vite — lightning-fast dev server & bundler.
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Feel free to fork the repository, create a branch, and submit a pull request.
 
