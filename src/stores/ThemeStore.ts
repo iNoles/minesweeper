@@ -1,18 +1,26 @@
 import { writable } from 'svelte/store';
 
+// Create the store with a default value of false (light mode)
 export const isDarkMode = writable(false);
 
-// Apply saved preference from localStorage
-if (localStorage.getItem('theme') === 'dark') {
-  isDarkMode.set(true);
-  document.documentElement.classList.add('dark');
-}
+// Ensure this runs only in the browser
+if (typeof window !== 'undefined') {
+  const storedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-// Reactively update the HTML class when store changes
-isDarkMode.subscribe((value) => {
-  if (value) {
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    isDarkMode.set(true);
     document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
   }
-});
+
+  // Subscribe to store changes to update <html class="dark">
+  isDarkMode.subscribe((value) => {
+    if (value) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+}
