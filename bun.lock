@@ -14,7 +14,7 @@
         "eslint-config-prettier": "^10.1.5",
         "eslint-plugin-svelte": "^3.9.0",
         "globals": "^16.2.0",
-        "lucide-svelte": "^0.525.0",
+        "lucide-svelte": "^0.528.0",
         "prettier": "^3.5.3",
         "prettier-plugin-svelte": "^3.4.0",
         "prettier-plugin-tailwindcss": "^0.6.10",
@@ -410,7 +410,7 @@
 
     "lodash.merge": ["lodash.merge@4.6.2", "", {}, "sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ=="],
 
-    "lucide-svelte": ["lucide-svelte@0.525.0", "", { "peerDependencies": { "svelte": "^3 || ^4 || ^5.0.0-next.42" } }, "sha512-kfuN6JcCqTfCz2B76aXnyGLAzEBRSYw5GaUspM5RNHQZS5aI5yaKu06fbaofOk8cDvUtY0AUm/zAix7aUX6Q3A=="],
+    "lucide-svelte": ["lucide-svelte@0.528.0", "", { "peerDependencies": { "svelte": "^3 || ^4 || ^5.0.0-next.42" } }, "sha512-9M5dIWvrJkq5H4/vo6nb5El2YowboAq3Q7yuVbe0QEWAOnnMSnA8i2xx1R1Ml5TPL/GdLK+l3aK1rgDGls/stA=="],
 
     "magic-string": ["magic-string@0.30.17", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.0" } }, "sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA=="],
 
